@@ -4,21 +4,25 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Card extends Main {
+public class Card {
 
 
     private int pin;
     private String name;
     private double randomCashOnCard;
     private int userCard;
-    private int multiple;
     private int theRestOfMoney;
     private static int RANDOM_BOUND = 9999;
 
     public void name() throws FileNotFoundException {
         System.out.println(Colors.ANSI_BLUE + "Select the name of your bank" + Colors.ANSI_RESET);
         Scanner scanner = fileNameOfBanks();
-        this.name = scanner.next();
+        try {
+            fileNameOfBanks();
+            this.name = scanner.next();
+        }catch (InputMismatchException e) {
+            fileNameOfBanks();
+        }
         System.out.println(Colors.ANSI_GREEN + "Your bank is " + name.toUpperCase() + Colors.ANSI_RESET);
         System.out.println(Colors.ANSI_CYAN + "Inserd the card" + Colors.ANSI_RESET);
     }
