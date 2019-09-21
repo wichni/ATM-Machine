@@ -17,12 +17,7 @@ public class Card {
     public void name() throws FileNotFoundException {
         System.out.println(Colors.ANSI_BLUE + "Select the name of your bank" + Colors.ANSI_RESET);
         Scanner scanner = fileNameOfBanks();
-        try {
-            fileNameOfBanks();
-            this.name = scanner.next();
-        }catch (InputMismatchException e) {
-            fileNameOfBanks();
-        }
+        this.name = scanner.next();
         System.out.println(Colors.ANSI_GREEN + "Your bank is " + name.toUpperCase() + Colors.ANSI_RESET);
         System.out.println(Colors.ANSI_CYAN + "Inserd the card" + Colors.ANSI_RESET);
     }
@@ -54,9 +49,9 @@ public class Card {
     }
 
     public void getUserCard() {
-        if (userCard %10 != 0){
+        if (userCard % 10 != 0) {
             System.out.println(Colors.ANSI_RED + "Unable to perform operation" + "\nTry again" + Colors.ANSI_RESET);
-        }else if (userCard < randomCashOnCard) {
+        } else if (userCard < randomCashOnCard) {
             System.out.println(Colors.ANSI_GREEN + "Wait for money ");
             System.out.println("The rest of money on you account: " + (double) theRestOfMoney + "\nThank you " + Colors.ANSI_RESET);
         } else if (userCard > randomCashOnCard) {
