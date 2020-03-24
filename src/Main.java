@@ -14,6 +14,7 @@ public class Main {
         card.name();
         card.getPin();
         card.getRandomCashOnCard();
+        card.getAddMoneyToYourAccount();
         card.getTheRestOfMoney();
         card.getUserCard();
     }

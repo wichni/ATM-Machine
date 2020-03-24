@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class Card {
 
-
     private int pin;
     private String name;
     private double randomCashOnCard;
     private int userCard;
     private int theRestOfMoney;
+    private int addMoneyToYourAccount;
     private static int RANDOM_BOUND = 9999;
 
     public void name() throws FileNotFoundException {
@@ -43,11 +43,6 @@ public class Card {
         this.userCard = scanner.nextInt();
     }
 
-    public int getTheRestOfMoney() {
-        theRestOfMoney = (int) randomCashOnCard - userCard;
-        return theRestOfMoney;
-    }
-
     public void getUserCard() {
         if (userCard % 10 != 0) {
             System.out.println(Colors.ANSI_RED + "Unable to perform operation" + "\nTry again" + Colors.ANSI_RESET);
@@ -58,6 +53,16 @@ public class Card {
             System.out.println(Colors.ANSI_RED + "You can not pay more: " + randomCashOnCard + "\nTry again" + Colors.ANSI_RESET);
         } else
             System.out.println(Colors.ANSI_BLUE + "You paid all the money" + "\nThank you" + Colors.ANSI_RESET);
+    }
+
+    public int getTheRestOfMoney() {
+        theRestOfMoney = (int) randomCashOnCard - userCard;
+        return theRestOfMoney;
+    }
+
+    public int getAddMoneyToYourAccount() {
+        addMoneyToYourAccount = (int) randomCashOnCard + userCard;
+        return addMoneyToYourAccount;
     }
 
     private Scanner fileNameOfBanks() throws FileNotFoundException {
